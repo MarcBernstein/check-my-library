@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
+
+gem 'json'
+
+gem 'omniauth-goodreads', :git => "https://github.com/sandboxws/omniauth-goodreads.git"
+
+gem 'rails_12factor', group: :production
+
 gem 'rails', '4.1.4'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
