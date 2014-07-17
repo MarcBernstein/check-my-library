@@ -1,0 +1,8 @@
+<h3>User</h3>
+<p>
+<%= image_tag(@user.small_image_url, :alt => @user.name, :align => "left") %>
+<br>
+&nbsp;Name: <%= @user.name %>
+<br>
+&nbsp;Profile: <%= link_to @user.link %>
+</p>
