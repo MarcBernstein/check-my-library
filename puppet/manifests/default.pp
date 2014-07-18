@@ -28,7 +28,7 @@ file {'gemrc':
   path    => '/home/vagrant/.gemrc',
   ensure  => present,
   mode    => 0644,
-  content => "gem: --no-rdoc --no-ri",
+  content => 'gem: --no-rdoc --no-ri'
 }
 
 # --- SQLite -------------------------------------------------------------------
