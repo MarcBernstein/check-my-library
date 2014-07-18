@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '2.1.2'
 
 gem 'json'
@@ -24,7 +24,7 @@ group :production do
 group :development do
   gem 'sqlite3'
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_21]
+  gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'rails_layout'
 end
