@@ -139,15 +139,18 @@ exec { 'install_rvm':
   require => Package['curl']
 }
 
+exec { 'rvm_requirements':
+  command => "${as_vagrant} '${home}/.rvm/bin/rvm requirements'",
+  require => Exec['install_rvm']
+}
+
 exec { 'install_ruby':
   # We run the rvm executable directly because the shell function assumes an
   # interactive environment, in particular to display messages or ask questions.
   # The rvm executable is more suitable for automated installs.
-  #
-  # use a ruby patch level known to have a binary
   command => "${as_vagrant} '${home}/.rvm/bin/rvm install ruby-${ruby_version} --autolibs=enabled && rvm alias create default ${ruby_version}'",
   creates => "${home}/.rvm/bin/ruby",
-  require => Exec['install_rvm']
+  require => Exec['rvm_requirements']
 }
 
 # RVM installs a version of bundler, but for edge Rails we want the most recent one.
