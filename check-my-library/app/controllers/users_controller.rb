@@ -12,7 +12,12 @@ class UsersController < ApplicationController
 
 	def show_to_read_shelf
 		@user = User.find(params[:id])
-		@user.get_to_read_shelf
+		if @user.to_read_shelf
+			render :text => @user.to_read_shelf.count
+		else
+			render :text => "Fetching books..."
+			@user.get_to_read_shelf
+		end
 	end
 
 end

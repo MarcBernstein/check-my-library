@@ -18,11 +18,18 @@ class User < ActiveRecord::Base
 
 	def get_to_read_shelf()
 		Rails.logger = Logger.new(STDOUT)
-		logger.debug self.token
+		logger.debug "@to_read_shelf.blank?: " + @to_read_shelf.blank?.to_s
 
-		goodreads_client = Goodreads.new :oauth_token => self.token
-		shelf = goodreads_client.shelf(self.user_id, 'to-read')
-		shelf.total
+		if (!@to_read_shelf)
+			goodreads_client = Goodreads.new :oauth_token => self.token
+			logger.debug "Starting fetch"
+			@to_read_shelf = goodreads_client.shelf(self.user_id, 'to-read')
+			logger.debug "Finished fetching"
+		end
+	end
+
+	def to_read_shelf
+		@to_read_shelf
 	end
 
 end
