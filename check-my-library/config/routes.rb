@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
 
+	get '/user/:id/show_to_read_shelf' => 'users#show_to_read_shelf', :as => :show_to_read_shelf
 end

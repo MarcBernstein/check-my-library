@@ -3,6 +3,7 @@ ruby '2.1.2'
 
 gem 'json'
 
+gem 'goodreads', '~> 0.3.0'
 gem 'omniauth-goodreads', :git => "https://github.com/sandboxws/omniauth-goodreads.git"
 
 gem 'rails', '4.1.4'
@@ -13,7 +14,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
+# gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'thin'

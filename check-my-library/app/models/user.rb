@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	require 'goodreads'
 
 	def self.create_with_omniauth(auth)
 		create! do |user|
@@ -13,6 +14,15 @@ class User < ActiveRecord::Base
 			user.user_id = auth["extra"]["raw_info"]["id"]
 			user.link = auth["extra"]["raw_info"]["link"]
     end
+	end
+
+	def get_to_read_shelf()
+		Rails.logger = Logger.new(STDOUT)
+		logger.debug self.token
+
+		goodreads_client = Goodreads.new :oauth_token => self.token
+		shelf = goodreads_client.shelf(self.user_id, 'to-read')
+		shelf.total
 	end
 
 end

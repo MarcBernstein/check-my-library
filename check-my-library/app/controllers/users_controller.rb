@@ -10,4 +10,9 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def show_to_read_shelf
+		@user = User.find(params[:id])
+		@user.get_to_read_shelf
+	end
+
 end

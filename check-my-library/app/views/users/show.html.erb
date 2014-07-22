@@ -6,3 +6,5 @@
 <br>
 &nbsp;Profile: <%= link_to @user.link %>
 </p>
+
+<%= button_to('Check My Books', show_to_read_shelf_path(@user), :method => :get, :class => 'btn btn-large btn-primary')  %>
